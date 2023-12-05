@@ -49,8 +49,8 @@ from tqdm import tqdm
 
 import sys
 sys.path.append('.')
-from src.utils.datasets import get_dataset
-from src import config
+from ESLAM.src.utils.datasets import get_dataset
+from ESLAM.src import config
 
 def cull_mesh(mesh_file, cfg, args, device, estimate_c2w_list=None):
     """

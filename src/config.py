@@ -40,7 +40,7 @@
     # limitations under the License.
 
 import yaml
-from src import networks
+from ESLAM.src import networks
 
 def load_config(path, default_path=None):
     """

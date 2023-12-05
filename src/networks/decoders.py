@@ -42,7 +42,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from src.common import normalize_3d_coordinate
+from ESLAM.src.common import normalize_3d_coordinate
 
 class Decoders(nn.Module):
     """

@@ -40,7 +40,7 @@
     # limitations under the License.
 
 import torch
-from src.common import get_rays, sample_pdf, normalize_3d_coordinate
+from ESLAM.src.common import get_rays, sample_pdf, normalize_3d_coordinate
 
 class Renderer(object):
     """

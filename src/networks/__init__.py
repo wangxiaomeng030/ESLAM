@@ -1,2 +1,2 @@
-from src.networks import config
+from ESLAM.src.networks import config
 

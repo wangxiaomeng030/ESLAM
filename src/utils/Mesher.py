@@ -45,7 +45,7 @@ import skimage
 import torch
 import trimesh
 from packaging import version
-from src.utils.datasets import get_dataset
+from ESLAM.src.utils.datasets import get_dataset
 
 class Mesher(object):
     """

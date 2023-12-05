@@ -48,10 +48,10 @@ import time
 
 from colorama import Fore, Style
 
-from src.common import (get_samples, random_select, matrix_to_cam_pose, cam_pose_to_matrix)
-from src.utils.datasets import get_dataset, SeqSampler
-from src.utils.Frame_Visualizer import Frame_Visualizer
-from src.tools.cull_mesh import cull_mesh
+from ESLAM.src.common import (get_samples, random_select, matrix_to_cam_pose, cam_pose_to_matrix)
+from ESLAM.src.utils.datasets import get_dataset, SeqSampler
+from ESLAM.src.utils.Frame_Visualizer import Frame_Visualizer
+from ESLAM.src.tools.cull_mesh import cull_mesh
 
 class Mapper(object):
     """

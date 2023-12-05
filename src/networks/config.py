@@ -39,7 +39,7 @@
     # See the License for the specific language governing permissions and
     # limitations under the License.
 
-from src.networks.decoders import Decoders
+from ESLAM.src.networks.decoders import Decoders
 
 def get_model(cfg):
     c_dim = cfg['model']['c_dim']  # feature dimensions
