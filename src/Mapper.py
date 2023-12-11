@@ -461,17 +461,18 @@ class Mapper(object):
 
             if (idx % self.mesh_freq == 0) and (not (idx == 0 and self.no_mesh_on_first_frame)):
                 mesh_out_file = f'{self.output}/mesh/{idx:05d}_mesh.ply'
+                mesh_rec_file = f'{self.output}/mesh/{idx:05d}_rec_mesh.ply'
                 self.mesher.get_mesh(mesh_out_file, all_planes, self.decoders, self.keyframe_dict, self.device)
-                cull_mesh(mesh_out_file, self.cfg, self.args, self.device, estimate_c2w_list=self.estimate_c2w_list[:idx+1])
+                cull_mesh(mesh_out_file, self.cfg, self.args, self.device, mesh_rec_file, estimate_c2w_list=self.estimate_c2w_list[:idx+1])
 
             if idx == self.n_img-1:
-                if self.eval_rec:
-                    mesh_out_file = f'{self.output}/mesh/final_mesh_eval_rec.ply'
-                else:
-                    mesh_out_file = f'{self.output}/mesh/final_mesh.ply'
-
+                self.logger.log_eval_data(idx)
+                mesh_out_file = f'{self.output}/mesh/final_mesh.ply'
                 self.mesher.get_mesh(mesh_out_file, all_planes, self.decoders, self.keyframe_dict, self.device)
-                cull_mesh(mesh_out_file, self.cfg, self.args, self.device, estimate_c2w_list=self.estimate_c2w_list)
+
+                if self.eval_rec:
+                    mesh_rec_file = f'{self.output}/mesh/final_mesh_eval_rec.ply'
+                    cull_mesh(mesh_out_file, self.cfg, self.args, self.device, mesh_rec_file, estimate_c2w_list=self.estimate_c2w_list)
 
                 break
 

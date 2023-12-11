@@ -52,7 +52,7 @@ sys.path.append('.')
 from ESLAM.src.utils.datasets import get_dataset
 from ESLAM.src import config
 
-def cull_mesh(mesh_file, cfg, args, device, estimate_c2w_list=None):
+def cull_mesh(mesh_file, cfg, args, device, output_file, estimate_c2w_list=None):
     """
     Cull the mesh by removing the points that are not visible in any of the frames.
     The output mesh file will be saved in the same directory as the input mesh file.
@@ -126,9 +126,6 @@ def cull_mesh(mesh_file, cfg, args, device, estimate_c2w_list=None):
     mesh.update_faces(~face_mask)
     mesh.remove_unreferenced_vertices()
     mesh.process(validate=False)
-
-    mesh_ext = mesh_file.split('.')[-1]
-    output_file = mesh_file[:-len(mesh_ext) - 1] + '_culled.' + mesh_ext
 
     mesh.export(output_file)
 
